@@ -45,6 +45,7 @@
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#features">Features</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#services">Services</a></li>
           <!-- <li><a href="#pricing">Pricing</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -608,7 +609,7 @@
                   <i class="bi bi-people fs-1 text-primary"></i>
                 </div>
                 <h5 class="card-title fw-bold">HRIS</h5>
-                <p class="card-text text-muted">A comprehensive human resource and payroll system.</p>
+                <p class="card-text text-muted">A comprehensive human resource and payroll system for managing employee records, attendance, and benefits.</p>
               </div>
             </div>
       
@@ -710,12 +711,33 @@
                 <p class="card-text text-muted">Efficiently manage parking spaces, vehicle entries, and exits for your facility.</p>
               </div>
             </div>
+      
+            <!-- Project Item 11 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-shop fs-1 text-info"></i>
+                </div>
+                <h5 class="card-title fw-bold">Operations App</h5>
+                <p class="card-text text-muted">Manage POS, Purchase Orders, and inventory for smooth daily business operations.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 12 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-geo-alt fs-1 text-success"></i>
+                </div>
+                <h5 class="card-title fw-bold">Mobile App Time In/Out</h5>
+                <p class="card-text text-muted">Track employee attendance with GPS and camera integration, fully connected to HRIS.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-
-    <!-- Features 2 Section -->
+      
+          
     <section id="features-2" class="features-2 section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
