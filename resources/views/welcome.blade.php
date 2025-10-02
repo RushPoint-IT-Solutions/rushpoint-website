@@ -593,8 +593,126 @@
       </div>
     
     </section>
-    
-    <!-- Features Cards Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Projects</h2>
+            <p class="text-muted">A showcase of our latest systems and applications for various business needs.</p>
+          </div>
+      
+          <div class="row g-4">
+            <!-- Project Item 1 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-people fs-1 text-primary"></i>
+                </div>
+                <h5 class="card-title fw-bold">HRIS</h5>
+                <p class="card-text text-muted">A comprehensive human resource and payroll system.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 2 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-journal-medical fs-1 text-success"></i>
+                </div>
+                <h5 class="card-title fw-bold">Dental Management System</h5>
+                <p class="card-text text-muted">Manage patient records, appointments, and dental procedures efficiently.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 3 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-folder2-open fs-1 text-warning"></i>
+                </div>
+                <h5 class="card-title fw-bold">Electronic Management System</h5>
+                <p class="card-text text-muted">Organize documents, workflows, and electronic approvals for streamlined operations.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 4 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-check2-circle fs-1 text-danger"></i>
+                </div>
+                <h5 class="card-title fw-bold">Audit Findings Management System</h5>
+                <p class="card-text text-muted">Track audit findings, assign responsibilities, and ensure compliance efficiently.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 5 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-kanban fs-1 text-info"></i>
+                </div>
+                <h5 class="card-title fw-bold">Project & Task Management System</h5>
+                <p class="card-text text-muted">Plan, track, and manage tasks and projects with real-time collaboration features.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 6 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-hdd-network fs-1 text-secondary"></i>
+                </div>
+                <h5 class="card-title fw-bold">IT Asset Management System</h5>
+                <p class="card-text text-muted">Monitor and manage IT assets including hardware, software, and licenses.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 7 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-gift fs-1 text-success"></i>
+                </div>
+                <h5 class="card-title fw-bold">Rewards App</h5>
+                <p class="card-text text-muted">Engage users with reward points, incentives, and loyalty programs through a mobile app.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 8 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-ticket-detailed fs-1 text-primary"></i>
+                </div>
+                <h5 class="card-title fw-bold">Ticketing Management System</h5>
+                <p class="card-text text-muted">Track, assign, and resolve support tickets for efficient customer service.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 9 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-person-badge fs-1 text-warning"></i>
+                </div>
+                <h5 class="card-title fw-bold">Visitors Management System</h5>
+                <p class="card-text text-muted">Manage visitor registration, access control, and security with ease.</p>
+              </div>
+            </div>
+      
+            <!-- Project Item 10 -->
+            <div class="col-md-4">
+              <div class="card h-100 text-center border-0 shadow-sm p-3">
+                <div class="mb-3">
+                  <i class="bi bi-car-front fs-1 text-danger"></i>
+                </div>
+                <h5 class="card-title fw-bold">Parking System</h5>
+                <p class="card-text text-muted">Efficiently manage parking spaces, vehicle entries, and exits for your facility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
     <!-- Features 2 Section -->
@@ -662,7 +780,7 @@
         </div>
     
         <!-- Testimonial -->
-        <div class="feature-testimonial" data-aos="fade-up" data-aos-delay="300">
+        {{-- <div class="feature-testimonial" data-aos="fade-up" data-aos-delay="300">
           <div class="row align-items-center">
             <div class="col-lg-6" data-aos="zoom-in">
               <div class="testimonial-image">
@@ -682,7 +800,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
     
       </div>
     
