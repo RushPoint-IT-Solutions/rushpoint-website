@@ -4,13 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>RushPoint IT Solutions</title>
-  <meta name="description" content="RushPoint provides innovative IT solutions including web development, API integration, software automation, and technology consulting to help businesses grow.">
-<meta name="keywords" content="IT solutions, web development, software automation, API integration, technology consulting, business technology, IT services, custom software">
-
+  <title>RushPoint IT Solutions | Web Development, API, AI & Process Automation</title>
+  <meta name="title" content="RushPoint IT Solutions | Web Development, API, AI & Process Automation">
+  <meta name="description" content="RushPoint IT Solutions delivers cutting-edge technology services including Web Development, API Integration, AI Development, RPA, HRIS, and Inventory Systems. Helping businesses innovate, automate, and scale with reliable IT solutions.">
+  <meta name="keywords" content="RushPoint, RushPoint IT Solutions, Web Development, API Integration, AI Development, Process Automation, RPA, HRIS, Inventory Management, POS, Cloud Solutions, IT Services Philippines">
+  <meta content="Renz Cabato" name="author">
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rushpoint.com.ph/">
+  <meta property="og:title" content="RushPoint IT Solutions | Web Development, API, AI & Process Automation">
+  <meta property="og:description" content="RushPoint IT Solutions empowers businesses with smart technology solutions—Web Development, AI, API, RPA, and automation.">
+  <meta property="og:image" content="https://rushpoint.com.ph/assets/img/header_2.png">
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
