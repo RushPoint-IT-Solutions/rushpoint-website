@@ -888,7 +888,7 @@
     
 
     <!-- Clients Section -->
-    {{-- <section id="clients" class="clients section">
+    <section id="clients" class="clients section">
 
       <div class="container">
 
@@ -927,20 +927,20 @@
             }
           </script>
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/clients-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-2.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-3.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-4.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-5.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-6.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-7.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/clients-8.webp" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/awesam.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/manda.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/W Group.webp" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/PASCAL.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/Saltiii-Logo.svg" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/ad-voca-sitelogo.svg" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/pivi4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/xtana.webp" class="img-fluid" alt=""></div>
           </div>
         </div>
 
       </div>
 
-    </section><!-- /Clients Section --> --}}
+    </section><!-- /Clients Section -->
 
 
    
