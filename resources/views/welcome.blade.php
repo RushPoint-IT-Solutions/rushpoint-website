@@ -9,6 +9,7 @@
   <meta name="description" content="RushPoint IT Solutions delivers cutting-edge technology services including Web Development, API Integration, AI Development, RPA, HRIS, and Inventory Systems. Helping businesses innovate, automate, and scale with reliable IT solutions.">
   <meta name="keywords" content="RushPoint, RushPoint IT Solutions, Web Development, API Integration, AI Development, Process Automation, RPA, HRIS, Inventory Management, POS, Cloud Solutions, IT Services Philippines">
   <meta content="Renz Cabato" name="author">
+  <meta name="robots" content="index, follow">
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
