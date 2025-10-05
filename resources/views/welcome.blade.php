@@ -11,8 +11,8 @@
   <meta content="Renz Cabato" name="author">
   <meta name="robots" content="index, follow">
   <!-- Favicons -->
-  <link href="assets/img/icon.png" rel="icon">
-  <link href="assets/img/icon.png" rel="apple-touch-icon">
+  <link href="favicon.png" rel="icon">
+  <link href="favicon.png" rel="apple-touch-icon">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rushpoint.com.ph/">
