@@ -5,21 +5,21 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>RushPoint IT Solutions | Web Development, API, AI & Process Automation</title>
-  <meta name="title" content="RushPoint IT Solutions | Web Development, API, AI & Process Automation">
+  <meta name="title" content="RushPoint IT Solutions">
   <meta name="description" content="RushPoint IT Solutions delivers cutting-edge technology services including Web Development, API Integration, AI Development, RPA, HRIS, and Inventory Systems. Helping businesses innovate, automate, and scale with reliable IT solutions.">
   <meta name="keywords" content="RushPoint, RushPoint IT Solutions, Web Development, API Integration, AI Development, Process Automation, RPA, HRIS, Inventory Management, POS, Cloud Solutions, IT Services Philippines">
   <meta content="Renz Cabato" name="author">
   <meta name="robots" content="index, follow">
   <!-- Favicons -->
-  <link href="favicon.png" rel="icon">
-  <link href="favicon.png" rel="apple-touch-icon">
+  <link href="https://rushpoint.com.ph/favicon.png" rel="icon">
+  <link href="https://rushpoint.com.ph/favicon.png" rel="apple-touch-icon">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rushpoint.com.ph/">
-  <meta property="og:title" content="RushPoint IT Solutions | Web Development, API, AI & Process Automation">
+  <meta property="og:title" content="RushPoint IT Solutions">
   <meta property="og:description" content="RushPoint IT Solutions empowers businesses with smart technology solutions—Web Development, AI, API, RPA, and automation.">
   <meta property="og:image" content="https://rushpoint.com.ph/assets/img/header_2.png">
-
+  
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -35,7 +35,19 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "RushPoint IT Solutions",
+  "url": "https://rushpoint.com.ph/",
+  "logo": "https://rushpoint.com.ph/favicon.png",
+  "sameAs": [
+    "https://www.facebook.com/RushPointITSolutions",
+    "https://www.linkedin.com/company/rushpoint-it-solutions"
+  ]
+}
+</script>
 </head>
 
 <body class="index-page">
