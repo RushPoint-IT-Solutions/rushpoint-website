@@ -210,46 +210,46 @@
 
   <script>
 function downloadVCard() {
-const name = "{{ $employee->name }}";
-const position = document.getElementById('position').innerText;
-const email = "{{ $employee->email }}";
-const company = "RUSHPOINT IT SOLUTIONS";
-const phone = "{{ $employee->number }}";
+    const fullName = document.getElementById('name').innerText.trim();
+    const position = document.getElementById('position').innerText;
+    const email = "{{ $employee->email }}";
+    const company = "{{ $employee->company ?? 'Company' }}";
+    const phone = "{{ $employee->number }}";
 
+    // Split name for iPhone (N:Last;First;;;)
+    const parts = fullName.split(" ");
+    const firstName = parts[0] || "";
+    const lastName = parts.slice(1).join(" ") || "";
 
-const vcard =
+    const vcard =
 `BEGIN:VCARD
 VERSION:3.0
-FN:${name}
+N:${lastName};${firstName};;;
+FN:${fullName}
 TITLE:${position}
 EMAIL;TYPE=INTERNET:${email}
 ORG:${company}
 TEL;TYPE=CELL:${phone}
 END:VCARD`;
 
+    // Base64 encode for iPhone Safari
+    const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
+    const url = "data:text/vcard;base64," + base64VCard;
 
-// Base64 encode for Safari+iOS
-const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
-const url = "data:text/vcard;base64," + base64VCard;
+    // iPhone Safari should directly open Contacts
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = url;
+        return;
+    }
 
-
-// Create a hidden download link
-const link = document.createElement("a");
-link.href = url;
-link.download = `${name}.vcf`;
-
-
-// For iPhone Safari: open in new tab so it triggers native Contacts
-if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-window.location.href = url;
-return;
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${fullName}.vcf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
-
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
-}
 </script>
 </body>
 </html>
