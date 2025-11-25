@@ -208,35 +208,48 @@
         </div>
     </div>
 
-    <script>
-        function downloadVCard() {
-            const name = "Christian Louboutin";
-            const position = "Designer";
-            const email = "christian@example.com";
-            const company = "Your Company";
-            const phone = "+123456789";
+  <script>
+function downloadVCard() {
+const name = document.getElementById('name').innerText;
+const position = document.getElementById('position').innerText;
+const email = "{{ $employee->email }}";
+const company = "{{ $employee->company ?? 'Company' }}";
+const phone = "{{ $employee->number }}";
 
-            const vcard =
-            `BEGIN:VCARD
-            VERSION:3.0
-            FN:${name}
-            TITLE:${position}
-            EMAIL;TYPE=INTERNET:${email}
-            ORG:${company}
-            TEL;TYPE=CELL:${phone}
-            END:VCARD`;
 
-            const blob = new Blob([vcard], { type: "text/vcard" });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement("a");
+const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TITLE:${position}
+EMAIL;TYPE=INTERNET:${email}
+ORG:${company}
+TEL;TYPE=CELL:${phone}
+END:VCARD`;
 
-            link.href = url;
-            link.download = `${name}.vcf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
 
+// Base64 encode for Safari+iOS
+const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
+const url = "data:text/vcard;base64," + base64VCard;
+
+
+// Create a hidden download link
+const link = document.createElement("a");
+link.href = url;
+link.download = `${name}.vcf`;
+
+
+// For iPhone Safari: open in new tab so it triggers native Contacts
+if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+window.location.href = url;
+return;
+}
+
+
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+}
+</script>
 </body>
 </html>
