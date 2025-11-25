@@ -20,3 +20,5 @@ Route::get('/generate-sitemap', function () {
     SitemapGenerator::create('https://rushpoint.com.ph')->writeToFile(public_path('sitemap.xml'));
     return 'Sitemap generated!';
 });
+
+Route::get('/{id}','ContactController@view');
