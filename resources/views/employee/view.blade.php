@@ -255,19 +255,43 @@ async function downloadVCard() {
         return;
     }
 
-    // ✔ Android auto-opens Contacts using Intent
-    if (/Android/i.test(navigator.userAgent)) {
+  if (/Android/i.test(navigator.userAgent)) {
+
+    try {
         const blob = new Blob([vcard], { type: "text/x-vcard" });
-        const blobUrl = URL.createObjectURL(blob);
+        const url = URL.createObjectURL(blob);
 
-        const intentUrl =
-            "intent://" +
-            encodeURIComponent(blobUrl) +
-            "#Intent;scheme=content;type=text/x-vcard;end";
+        const link = document.createElement("a");
+        link.href = url;
 
-        window.location.href = intentUrl;
+        // First attempt: open with Contacts
+        link.setAttribute("download", fullName + ".vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+
+        return; // success
+    } catch (e) {
+        // Fallback to download
+        console.warn("Android auto-import failed, fallback download:", e);
+
+        const blob = new Blob([vcard], { type: "text/vcard" });
+        const fallbackUrl = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = fallbackUrl;
+        a.download = fullName + ".vcf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(fallbackUrl);
+
         return;
     }
+}
 
     // ✔ Desktop fallback (normal download)
     const blob = new Blob([vcard], { type: "text/vcard" });
