@@ -209,12 +209,26 @@
     </div>
 
   <script>
-function downloadVCard() {
+async function downloadVCard() {
     const fullName = document.getElementById('name').innerText.trim();
     const position = document.getElementById('position').innerText;
     const email = "{{ $employee->email }}";
     const company = "{{ $employee->company ?? 'Company' }}";
     const phone = "{{ $employee->number }}";
+    const avatarUrl = "{{ asset($employee->avatar) }}";
+
+    // Convert image to Base64
+    async function imageToBase64(url) {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+            reader.readAsDataURL(blob);
+        });
+    }
+
+    const photoBase64 = await imageToBase64(avatarUrl);
 
     // Split name for iPhone (N:Last;First;;;)
     const parts = fullName.split(" ");
@@ -230,6 +244,7 @@ TITLE:${position}
 EMAIL;TYPE=INTERNET:${email}
 ORG:${company}
 TEL;TYPE=CELL:${phone}
+PHOTO;ENCODING=b;TYPE=JPEG:${photoBase64}
 END:VCARD`;
 
     // Base64 encode for iPhone Safari
