@@ -210,10 +210,10 @@
 
   <script>
 function downloadVCard() {
-const name = document.getElementById('name').innerText;
+const name = "{{ $employee->name }}";
 const position = document.getElementById('position').innerText;
 const email = "{{ $employee->email }}";
-const company = "{{ $employee->company ?? 'Company' }}";
+const company = "RUSHPOINT IT SOLUTIONS";
 const phone = "{{ $employee->number }}";
 
 
