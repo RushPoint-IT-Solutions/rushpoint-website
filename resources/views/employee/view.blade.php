@@ -208,7 +208,7 @@
         </div>
     </div>
 
-  <script>
+ <script>
 async function downloadVCard() {
     const fullName = document.getElementById('name').innerText.trim();
     const position = document.getElementById('position').innerText;
@@ -230,41 +230,58 @@ async function downloadVCard() {
 
     const photoBase64 = await imageToBase64(avatarUrl);
 
-    // Split name for iPhone (N:Last;First;;;)
     const parts = fullName.split(" ");
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || "";
 
+    // MUST use CRLF for iPhone
     const vcard =
-`BEGIN:VCARD
-VERSION:3.0
-N:${lastName};${firstName};;;
-FN:${fullName}
-TITLE:${position}
-EMAIL;TYPE=INTERNET:${email}
-ORG:${company}
-TEL;TYPE=CELL:${phone}
-PHOTO;ENCODING=b;TYPE=JPEG:${photoBase64}
-END:VCARD`;
+"BEGIN:VCARD\r\n" +
+"VERSION:3.0\r\n" +
+"N:" + lastName + ";" + firstName + ";;;\r\n" +
+"FN:" + fullName + "\r\n" +
+"TITLE:" + position + "\r\n" +
+"EMAIL;TYPE=INTERNET:" + email + "\r\n" +
+"ORG:" + company + "\r\n" +
+"TEL;TYPE=CELL:" + phone + "\r\n" +
+"PHOTO;ENCODING=b;TYPE=JPEG:" + photoBase64 + "\r\n" +
+"END:VCARD";
 
-    // Base64 encode for iPhone Safari
-    const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
-    const url = "data:text/vcard;base64," + base64VCard;
-
-    // iPhone Safari should directly open Contacts
+    // ✔ iPhone auto-opens Contacts
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        const base64 = btoa(unescape(encodeURIComponent(vcard)));
+        const url = "data:text/x-vcard;base64," + base64;
         window.location.href = url;
         return;
     }
 
+    // ✔ Android auto-opens Contacts using Intent
+    if (/Android/i.test(navigator.userAgent)) {
+        const blob = new Blob([vcard], { type: "text/x-vcard" });
+        const blobUrl = URL.createObjectURL(blob);
+
+        const intentUrl =
+            "intent://" +
+            encodeURIComponent(blobUrl) +
+            "#Intent;scheme=content;type=text/x-vcard;end";
+
+        window.location.href = intentUrl;
+        return;
+    }
+
+    // ✔ Desktop fallback (normal download)
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${fullName}.vcf`;
+    link.download = fullName + ".vcf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
 
+    URL.revokeObjectURL(url);
+}
 </script>
 </body>
 </html>
