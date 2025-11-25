@@ -236,26 +236,28 @@ async function downloadVCard() {
     const lastName = parts.slice(1).join(" ") || "";
 
     const vcard =
-`BEGIN:VCARD
-VERSION:3.0
-N:${lastName};${firstName};;;
-FN:${fullName}
-TITLE:${position}
-EMAIL;TYPE=INTERNET:${email}
-ORG:${company}
-TEL;TYPE=CELL:${phone}
-PHOTO;ENCODING=b;TYPE=JPEG:${photoBase64}
-END:VCARD`;
+        `BEGIN:VCARD
+        VERSION:3.0
+        N:${lastName};${firstName};;;
+        FN:${fullName}
+        TITLE:${position}
+        EMAIL;TYPE=INTERNET:${email}
+        ORG:${company}
+        TEL;TYPE=CELL:${phone}
+        PHOTO;ENCODING=b;TYPE=JPEG:${photoBase64}
+        END:VCARD`;
 
-    // Base64 encode for iPhone Safari
-    const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
-    const url = "data:text/vcard;base64," + base64VCard;
-
-    // iPhone Safari should directly open Contacts
+    // iPhone: must use data URL to auto-open Contacts
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        const base64VCard = btoa(unescape(encodeURIComponent(vcard)));
+        const url = "data:text/vcard;base64," + base64VCard;
         window.location.href = url;
         return;
     }
+
+    // ANDROID + DESKTOP: use BLOB (best compatibility)
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
 
     const link = document.createElement("a");
     link.href = url;
@@ -263,8 +265,9 @@ END:VCARD`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
 
+    URL.revokeObjectURL(url);
+}
 </script>
 </body>
 </html>
