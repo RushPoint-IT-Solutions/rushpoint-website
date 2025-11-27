@@ -90,6 +90,7 @@
             border-radius: 50%;
             border: 4px solid #fff;
             object-fit: cover;
+            object-position: center 5%; /* move image content downward */
             display: block;
             margin: 0 auto;
         }
