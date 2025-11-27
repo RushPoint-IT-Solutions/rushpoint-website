@@ -266,24 +266,23 @@ async function downloadVCard() {
        (best possible auto-import)
     -----------------------------*/
     if (/Android/i.test(navigator.userAgent)) {
-        const blob = new Blob([vcard], { type: "text/vcard" });
-        const url = URL.createObjectURL(blob);
 
-        // Attempt to open automatically
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = fullName + ".vcf";
-        a.style.display = "none";
-        document.body.appendChild(a);
+    // Most reliable MIME-type to trigger contacts import
+    const blob = new Blob([vcard], {
+        type: "text/x-vcard; charset=utf-8"
+    });
 
-        // Try opening with system handler
-        a.click();
+    const url = URL.createObjectURL(blob);
 
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        return;
-    }
+    // DO NOT USE <a download>
+    // Android must think it's a file to "open", not save.
+    window.location.href = url;
 
+    // cleanup after short delay
+    setTimeout(() => URL.revokeObjectURL(url), 3000);
+
+    return;
+}
     /* ----------------------------
        DESKTOP → Normal download
     -----------------------------*/
