@@ -213,7 +213,7 @@ async function downloadVCard() {
     const fullName = document.getElementById('name').innerText.trim();
     const position = document.getElementById('position').innerText;
     const email = "{{ $employee->email }}";
-    const company = "{{ $employee->company ?? 'Company' }}";
+    const company = "RUSHPOINT IT SOLUTIONS";
     const phone = "{{ $employee->number }}";
     const avatarUrl = "{{ asset($employee->avatar) }}";
 
