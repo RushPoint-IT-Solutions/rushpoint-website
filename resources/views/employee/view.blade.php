@@ -209,7 +209,7 @@
         </div>
     </div>
 
- <script>
+<script>
 async function downloadVCard() {
     const fullName = document.getElementById('name').innerText.trim();
     const position = document.getElementById('position').innerText;
@@ -218,7 +218,7 @@ async function downloadVCard() {
     const phone = "{{ $employee->number }}";
     const avatarUrl = "{{ asset($employee->avatar) }}";
 
-    // Convert image to Base64
+    // Convert avatar to Base64
     async function imageToBase64(url) {
         const response = await fetch(url);
         const blob = await response.blob();
@@ -231,70 +231,62 @@ async function downloadVCard() {
 
     const photoBase64 = await imageToBase64(avatarUrl);
 
+    // Name split
     const parts = fullName.split(" ");
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || "";
 
-    // MUST use CRLF for iPhone
+    // VCARD with CRLF
     const vcard =
-"BEGIN:VCARD\r\n" +
-"VERSION:3.0\r\n" +
-"N:" + lastName + ";" + firstName + ";;;\r\n" +
-"FN:" + fullName + "\r\n" +
-"TITLE:" + position + "\r\n" +
-"EMAIL;TYPE=INTERNET:" + email + "\r\n" +
-"ORG:" + company + "\r\n" +
-"TEL;TYPE=CELL:" + phone + "\r\n" +
-"PHOTO;ENCODING=b;TYPE=JPEG:" + photoBase64 + "\r\n" +
-"END:VCARD";
+        "BEGIN:VCARD\r\n" +
+        "VERSION:3.0\r\n" +
+        "N:" + lastName + ";" + firstName + ";;;\r\n" +
+        "FN:" + fullName + "\r\n" +
+        "TITLE:" + position + "\r\n" +
+        "EMAIL;TYPE=INTERNET:" + email + "\r\n" +
+        "ORG:" + company + "\r\n" +
+        "TEL;TYPE=CELL:" + phone + "\r\n" +
+        "PHOTO;ENCODING=b;TYPE=JPEG:" + photoBase64 + "\r\n" +
+        "END:VCARD";
 
-    // ✔ iPhone auto-opens Contacts
+    /* ----------------------------
+       iPHONE → Auto-import
+    -----------------------------*/
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         const base64 = btoa(unescape(encodeURIComponent(vcard)));
-        const url = "data:text/x-vcard;base64," + base64;
+        const url = "data:text/vcard;base64," + base64;
+
+        // Opens Contacts app instantly
         window.location.href = url;
         return;
     }
 
-  if (/Android/i.test(navigator.userAgent)) {
-
-    try {
-        const blob = new Blob([vcard], { type: "text/x-vcard" });
+    /* ----------------------------
+       ANDROID → Open VCF directly
+       (best possible auto-import)
+    -----------------------------*/
+    if (/Android/i.test(navigator.userAgent)) {
+        const blob = new Blob([vcard], { type: "text/vcard" });
         const url = URL.createObjectURL(blob);
 
-        const link = document.createElement("a");
-        link.href = url;
-
-        // First attempt: open with Contacts
-        link.setAttribute("download", fullName + ".vcf");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        URL.revokeObjectURL(url);
-
-        return; // success
-    } catch (e) {
-        // Fallback to download
-        console.warn("Android auto-import failed, fallback download:", e);
-
-        const blob = new Blob([vcard], { type: "text/vcard" });
-        const fallbackUrl = URL.createObjectURL(blob);
-
+        // Attempt to open automatically
         const a = document.createElement("a");
-        a.href = fallbackUrl;
+        a.href = url;
         a.download = fullName + ".vcf";
+        a.style.display = "none";
         document.body.appendChild(a);
+
+        // Try opening with system handler
         a.click();
+
         document.body.removeChild(a);
-
-        URL.revokeObjectURL(fallbackUrl);
-
+        URL.revokeObjectURL(url);
         return;
     }
-}
 
-    // ✔ Desktop fallback (normal download)
+    /* ----------------------------
+       DESKTOP → Normal download
+    -----------------------------*/
     const blob = new Blob([vcard], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
 
@@ -308,5 +300,6 @@ async function downloadVCard() {
     URL.revokeObjectURL(url);
 }
 </script>
+
 </body>
 </html>
