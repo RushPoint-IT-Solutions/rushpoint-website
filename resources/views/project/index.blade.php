@@ -48,51 +48,62 @@
   ]
 }
 </script>
-    <style>
-        body {
-            background: linear-gradient(135deg, #f3e9ff, #f9f5ff);
-            min-height: 100vh;
-            padding-bottom: 50px;
-        }
-        .app-card {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 25px 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            height: 170px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .app-card i {
-            font-size: 45px;
-            color: #6f42c1;
-        }
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.10);
-        }
-        .search-bar {
-            max-width: 420px;
-            margin: 20px auto 40px;
-        }
-        .group-title {
-            font-weight: 700;
-            font-size: 22px;
-            margin: 40px 0 15px;
-            color: #5a189a;
-        }
-        .logo { height: 55px; }
-        .collab-logo { height: 45px; }
-        .collab-divider {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 10px;
-            color: #666;
-        }
-    </style>
+   <style>
+    body {
+        background: linear-gradient(135deg, #e8f0f8, #f3f7fc);
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+    .app-card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 25px 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 2px solid #07284a10;
+    }
+    .app-card i {
+        font-size: 45px;
+        color: #07284a;
+    }
+    .app-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(7,40,74,0.20);
+        border-color: #07284a;
+    }
+    .search-bar {
+        max-width: 420px;
+        margin: 20px auto 40px;
+    }
+    .group-title {
+        font-weight: 700;
+        font-size: 22px;
+        margin: 40px 0 15px;
+        color: #07284a;
+        border-left: 6px solid #07284a;
+        padding-left: 10px;
+    }
+    .logo { 
+        height: 55px; 
+    }
+    .collab-logo { 
+        height: 45px; 
+    }
+    .collab-divider {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 10px;
+        color: #07284a;
+    }
+    nav.navbar {
+        border-bottom: 3px solid #07284a;
+    }
+</style>
 </head>
 
 <body>
